@@ -1,5 +1,3 @@
-'use strict'
-
 const validation = () => {
 
 
@@ -30,7 +28,6 @@ const validation = () => {
         e.target.value = e.target.value.replace(/[^\w\@\-\_\.\!\~\*\']/, "");
     });
     mainPhone.addEventListener("input", (e) => {
-        // e.target.value = e.target.value.replace(/[^\d\(\)]/i, "");
         e.target.value = e.target.value.replace(/[^()\-0-9+]/, "");
 
     });
