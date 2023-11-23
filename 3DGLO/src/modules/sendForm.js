@@ -1,5 +1,3 @@
-import { validate } from "schema-utils";
-
 const sendForm = ({ formId_1, formId_2, formId_3, someElem = [] }) => {
     const form_1 = document.getElementById(formId_1);
     const form_2 = document.getElementById(formId_2);
@@ -54,7 +52,7 @@ const sendForm = ({ formId_1, formId_2, formId_3, someElem = [] }) => {
 
         if (validate(formElements)) {
             sendData(formBody)
-                .then((data) => {
+                .then(data => {
                     statusBlock.textContent = successText;
                     spinner.remove()
                     formElements.forEach((input) => {
@@ -64,6 +62,11 @@ const sendForm = ({ formId_1, formId_2, formId_3, someElem = [] }) => {
                 .catch((e) => {
                     statusBlock.textContent = errorText;
                 });
+
+            setTimeout(() => {
+                statusBlock.textContent = '';
+            }, 5000);
+
         } else {
             alert("Данные не валидны");
         }
@@ -95,6 +98,7 @@ const sendForm = ({ formId_1, formId_2, formId_3, someElem = [] }) => {
     } catch (error) {
         console.log(error.message);
     }
+
 };
 
 export default sendForm;
